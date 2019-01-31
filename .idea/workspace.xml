@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caaa38aa-151a-43ab-97c6-99e21381f94a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/StreamSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SocketStub.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/StreamSocketTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Chatterbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Chatterbox.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/ChatterboxTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/ChatterboxTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/EchoServerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/ServerSocketStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/ServerSocketStub.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chatterbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chatterbox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EchoServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ChatterboxTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ChatterboxTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/EchoServerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ServerSocketStub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ServerSocketStub.java" afterDir="false" />
-    </list>
+    <list default="true" id="caaa38aa-151a-43ab-97c6-99e21381f94a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -99,10 +78,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Chatterbox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
+            <state relative-caret-position="463">
               <caret line="41" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -111,11 +90,16 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/StreamSocket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="45">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -212,37 +196,6 @@
               <item name="merce" type="b2602c69:ProjectViewProjectNode" />
               <item name="Echo-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
-            <path>
-              <item name="merce" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Echo-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="merce" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Echo-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="merce" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Echo-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="merce" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Echo-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="merce" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Echo-server" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -251,7 +204,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548940897456" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548941090675" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -364,9 +317,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ChatterboxTest_acceptsHasBeenCalled - 2019.01.30 at 14h 29m 09s.xml">
-      <configuration name="ChatterboxTest.acceptsHasBeenCalled" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ChatterboxTest - 2019.01.30 at 14h 30m 34s.xml">
       <configuration name="ChatterboxTest" configurationId="JUnit" />
     </history-entry>
@@ -394,11 +344,14 @@
     <history-entry file="All_in_merce_merce_test - 2019.01.31 at 11h 44m 44s.xml">
       <configuration name="All in merce.merce.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_merce_merce_test - 2019.01.31 at 13h 19m 01s.xml">
+      <configuration name="All in merce.merce.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24236874" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2783883" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -422,11 +375,11 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Gradle" order="5" visible="true" weight="0.32967034" />
+      <window_info anchor="right" id="Gradle" order="5" sideWeight="0.499187" visible="true" weight="0.32967034" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Maven" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.24177396" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.500813" side_tool="true" weight="0.32967034" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10802224" />
@@ -530,8 +483,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/StreamSocket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -540,7 +493,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Chatterbox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
+        <state relative-caret-position="463">
           <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="imports" expanded="true" />
