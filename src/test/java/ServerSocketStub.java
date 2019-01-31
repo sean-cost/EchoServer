@@ -4,18 +4,24 @@ import java.net.Socket;
 
 public class ServerSocketStub extends ServerSocket {
 
-  private Socket socketConnector;
+  private Socket socket;
+  private boolean called = false;
 
   public ServerSocketStub() throws IOException {
   }
 
-  public void createSocket(Socket socketConnector) {
-    this.socketConnector = socketConnector;
+  public void createSocket(Socket socket) {
+    this.socket = socket;
   }
 
   @Override
   public Socket accept(){
-    return this.socketConnector;
+    called = true;
+    return this.socket;
+  }
+
+  public boolean hasAcceptBeenCalled(){
+    return called;
   }
 
 }

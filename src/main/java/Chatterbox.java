@@ -5,27 +5,38 @@ import java.net.Socket;
 public class Chatterbox {
 
     private ServerSocket ss;
-    private Socket socketConnector;
+    private StreamSocket sc;
+    private Socket socket;
 
 
     public Chatterbox(ServerSocket ss) {
         this.ss = ss;
     }
 
-    public Socket getSocketConnector() {
-        return socketConnector;
+    public Socket getSocket() {
+        return socket;
     }
 
     public void start() throws IOException {
-        listen();
+        connect();
+        echo();
     }
 
-    public void listen() throws IOException {
-        socketConnector = newSocketConnector();
+    public void connect() throws IOException {
+        socket = newSocket();
+        setStreamSocket(socket);
     }
 
-    private Socket newSocketConnector() throws IOException {
+    public void echo() throws IOException {
+        String message = sc.readFromSocket();
+        sc.printToSocket(message);
+    }
+
+    private Socket newSocket() throws IOException {
         return this.ss.accept();
     }
 
+    private void setStreamSocket(Socket sc) throws IOException {
+        this.sc = new StreamSocket(sc);
+    }
 }

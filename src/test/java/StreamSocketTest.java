@@ -1,27 +1,26 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ChatterboxTest {
+public class StreamSocketTest {
 
     private Socket clientSocket;
-    private ServerSocketStub ssStub;
-    private Chatterbox server;
+    private StreamSocket streamSocket;
     private PrintStream output;
     private ByteArrayInputStream input;
     private ByteArrayOutputStream out;
 
     @Before
     public void setUp() throws IOException {
+
         out = new ByteArrayOutputStream();
         output = new PrintStream(out);
 
@@ -29,31 +28,18 @@ public class ChatterboxTest {
         input = new ByteArrayInputStream(mockInput.getBytes());
 
         clientSocket = new SocketStub(input, output);
-        ssStub = new ServerSocketStub();
+        streamSocket = new StreamSocket(clientSocket);
 
-        ssStub.createSocket(clientSocket);
-        server = new Chatterbox(ssStub);
     }
 
     @Test
-    public void acceptsASocket() throws IOException{
-        server.connect();
-        assertThat(server.getSocket(), is(clientSocket));
+    public void readsLineFromSocket() throws IOException {
+        assertThat(streamSocket.readFromSocket(), is("Hello"));
     }
 
     @Test
-    public void acceptsHasBeenCalled() throws IOException{
-        server.connect();
-        assertThat(ssStub.hasAcceptBeenCalled(), is(true));
-    }
-
-    @Test
-    public void sendsAMessageBack() throws IOException {
-        server.connect();
-        server.echo();
+    public void writesToSocket() {
+        streamSocket.printToSocket("Hello");
         assertThat(out.toString().trim(), is("Hello"));
     }
-
-
-
 }
