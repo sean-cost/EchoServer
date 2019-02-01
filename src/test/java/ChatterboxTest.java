@@ -35,7 +35,7 @@ public class ChatterboxTest {
 
         ssStub.createSocket(clientSocket);
 
-        server = new Chatterbox(ssStub, new UserInterface(new PrintStream(stout)));
+        server = new Chatterbox(ssStub, new ServerInterface(new PrintStream(stout)));
     }
 
     @Test

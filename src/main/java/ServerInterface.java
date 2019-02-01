@@ -1,9 +1,9 @@
 import java.io.PrintStream;
 
-public class UserInterface {
+public class ServerInterface {
     private PrintStream output;
 
-    public UserInterface(PrintStream output){
+    public ServerInterface(PrintStream output){
         this.output = output;
     }
 

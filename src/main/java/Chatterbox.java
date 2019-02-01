@@ -4,15 +4,15 @@ import java.net.Socket;
 
 public class Chatterbox {
 
-    private UserInterface ui;
+    private ServerInterface si;
     private ServerSocket ss;
     private StreamSocket sc;
     private Socket socket;
 
 
-    public Chatterbox(ServerSocket ss, UserInterface ui) {
+    public Chatterbox(ServerSocket ss, ServerInterface si) {
         this.ss = ss;
-        this.ui = ui;
+        this.si = si;
     }
 
     public Socket getSocket() {
@@ -20,16 +20,16 @@ public class Chatterbox {
     }
 
     public void start() throws IOException {
-        ui.inform("Starting the server");
+        si.inform("Starting the server");
         connect();
         sendInstructions();
         echo();
     }
 
     public void connect() throws IOException {
-        ui.inform("Server is awaiting for connections");
+        si.inform("Server is awaiting for connections");
         socket = newSocket();
-        ui.inform("Connection established with client in port " + socket.getPort());
+        si.inform("Connection established with client in port " + socket.getPort());
         setStreamSocket(socket);
     }
 
@@ -42,7 +42,7 @@ public class Chatterbox {
         String message = sc.readFromSocket();
         sc.printToSocket(message);
         if(sc.isMessageSent()){
-            ui.inform("Message sent");
+            si.inform("Message sent");
         }
     }
 
