@@ -7,8 +7,7 @@ public class EchoServer {
         int portNumber = Integer.parseInt(args[0]);
         ServerSocket ss = new ServerSocket(portNumber);
 
-        Chatterbox server = new Chatterbox(ss);
-        System.out.println("starting the server");
+        Chatterbox server = new Chatterbox(ss, new UserInterface(System.out));
         server.start();
     }
 }

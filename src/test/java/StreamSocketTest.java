@@ -42,4 +42,10 @@ public class StreamSocketTest {
         streamSocket.printToSocket("Hello");
         assertThat(out.toString().trim(), is("Hello"));
     }
+
+    @Test
+    public void hasMessageBeenSent(){
+        streamSocket.printToSocket("Hello");
+        assertThat(streamSocket.isMessageSent(), is(true));
+    }
 }

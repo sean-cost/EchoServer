@@ -4,14 +4,15 @@ import java.net.Socket;
 public class StreamSocket {
     private BufferedReader in;
     private PrintWriter out;
+    private boolean messageSent = false;
 
     public StreamSocket(Socket sc) throws IOException {
-        createInOut(sc.getInputStream(), sc.getOutputStream());
+        this.in = new BufferedReader(new InputStreamReader(sc.getInputStream()));
+        this.out = new PrintWriter(sc.getOutputStream(), true);
     }
 
-    private void createInOut(InputStream in, OutputStream out){
-        this.in = new BufferedReader(new InputStreamReader(in));
-        this.out = new PrintWriter(out, true);
+    public boolean isMessageSent() {
+        return messageSent;
     }
 
     public String readFromSocket() throws IOException {
@@ -20,5 +21,7 @@ public class StreamSocket {
 
     public void printToSocket(String message){
         out.println(message);
+        messageSent = !out.checkError();
     }
+
 }
