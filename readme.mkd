@@ -1,2 +1,19 @@
 # Echo Server
 
+##To run the echo server
+
+First, build the project
+
+`./gradlew clean build`
+
+
+And then start the server in port 9090 
+
+`java -jar build/libs/Echo-server-0.1.0.jar 9090`
+
+
+##To run Netcat
+
+Start netcat and connect to localhost on port 9090
+
+`netcat localhost 9090`
