@@ -1,14 +1,14 @@
 import java.io.*;
 import java.net.Socket;
 
-public class StreamSocket {
+public class StreamSocket extends Socket {
     private BufferedReader in;
     private PrintWriter out;
     private boolean messageSent = false;
 
-    public StreamSocket(Socket sc) throws IOException {
-        this.in = new BufferedReader(new InputStreamReader(sc.getInputStream()));
-        this.out = new PrintWriter(sc.getOutputStream(), true);
+    public StreamSocket(InputStream inputStream, OutputStream outputStream) throws IOException {
+        this.in = new BufferedReader(new InputStreamReader(inputStream));
+        this.out = new PrintWriter(outputStream, true);
     }
 
     public boolean isMessageSent() {

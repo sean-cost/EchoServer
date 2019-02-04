@@ -5,14 +5,12 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.net.Socket;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StreamSocketTest {
 
-    private Socket clientSocket;
     private StreamSocket streamSocket;
     private PrintStream output;
     private ByteArrayInputStream input;
@@ -27,9 +25,7 @@ public class StreamSocketTest {
         String mockInput = "Hello";
         input = new ByteArrayInputStream(mockInput.getBytes());
 
-        clientSocket = new SocketStub(input, output);
-        streamSocket = new StreamSocket(clientSocket);
-
+        streamSocket = new StreamSocket(input, output);
     }
 
     @Test

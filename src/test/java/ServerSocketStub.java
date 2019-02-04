@@ -7,10 +7,7 @@ public class ServerSocketStub extends ServerSocket {
   private Socket socket;
   private boolean called = false;
 
-  public ServerSocketStub() throws IOException {
-  }
-
-  public void createSocket(Socket socket) {
+  public ServerSocketStub(Socket socket) throws IOException {
     this.socket = socket;
   }
 
