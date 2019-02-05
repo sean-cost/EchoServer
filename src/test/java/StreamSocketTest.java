@@ -44,4 +44,5 @@ public class StreamSocketTest {
         streamSocket.printToSocket("Hello");
         assertThat(streamSocket.isMessageSent(), is(true));
     }
+
 }

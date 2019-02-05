@@ -3,7 +3,6 @@ import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -30,7 +29,7 @@ public class EchoThreadTest {
     }
 
     @Test
-    public void sendsMultipleMessagesBack() throws IOException {
+    public void sendsMultipleMessagesBack() {
         ByteArrayInputStream input = new ByteArrayInputStream("Hello\nWorld".getBytes());
 
         sc = new StreamSocket(input, output);
@@ -40,7 +39,7 @@ public class EchoThreadTest {
     }
 
     @Test
-    public void verifiesMessageSent() throws IOException {
+    public void verifiesMessageSent() {
         ByteArrayInputStream input = new ByteArrayInputStream("Hello\nWorld".getBytes());
 
         sc = new StreamSocket(input, output);
@@ -50,7 +49,7 @@ public class EchoThreadTest {
     }
 
     @Test
-    public void sendsInstructionsToClient() throws IOException {
+    public void sendsInstructionsToClient() {
         sc = new StreamSocket(new ByteArrayInputStream("\n".getBytes()), output);
         EchoThread echoThread = new EchoThread(sc, si);
 
@@ -59,7 +58,7 @@ public class EchoThreadTest {
     }
 
     @Test
-    public void quitsAThread() throws IOException {
+    public void closesASocket() {
         String mockInput = "quit\n";
         ByteArrayInputStream input = new ByteArrayInputStream(mockInput.getBytes());
 
@@ -67,6 +66,18 @@ public class EchoThreadTest {
         new EchoThread(sc, si).run();
 
         assertThat(sc.isClosed(), is(true));
+    }
+
+    @Test
+    public void stopsAThread() {
+        String mockInput = "quit\n";
+        ByteArrayInputStream input = new ByteArrayInputStream(mockInput.getBytes());
+
+        sc = new StreamSocket(input, output);
+        EchoThread echo = new EchoThread(sc, si);
+        echo.run();
+
+        assertThat(echo.isStopRequested(), is(true));
     }
 
 
