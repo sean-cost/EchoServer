@@ -13,8 +13,12 @@ public class Chatterbox {
 
     public void start() throws IOException {
         si.inform("Starting the server");
-        StreamSocket sc = listener.connect();
-        new EchoThread(sc, si).start();
+
+        while(true){
+            si.inform("Server is awaiting for connections");
+            StreamSocket sc = listener.connect();
+            new EchoThread(sc, si).start();
+        }
     }
 
 }

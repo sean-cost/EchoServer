@@ -13,7 +13,6 @@ public class Listener {
     }
 
     public StreamSocket connect() throws IOException {
-        si.inform("Server is awaiting for connections");
         Socket socket = ss.accept();
         si.inform("Connection established with client in port " + socket.getPort());
 
