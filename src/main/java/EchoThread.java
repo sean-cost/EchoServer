@@ -16,24 +16,24 @@ public class EchoThread extends Thread{
 
     public void run() {
         sendInstructions("Hello! Please insert a word");
-        String message = null;
+        String message;
 
         while (true){
             try {
                 message = sc.readFromSocket();
                 if ((message == null) || message.equalsIgnoreCase("QUIT")){
-                    sc.close();
-                    break;
+                    sc.closeConnection();
+                    return;
                 }else{
-                sc.printToSocket(message);
-                if(sc.isMessageSent()){
-                    si.inform("Message sent");
+                    sc.printToSocket(message);
+                    if(sc.isMessageSent()){
+                        si.inform("Message sent");
+                    }
                 }
-            }
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+
 }

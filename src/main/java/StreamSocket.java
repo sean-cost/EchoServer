@@ -6,7 +6,7 @@ public class StreamSocket extends Socket {
     private PrintWriter out;
     private boolean messageSent = false;
 
-    public StreamSocket(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public StreamSocket(InputStream inputStream, OutputStream outputStream) {
         this.in = new BufferedReader(new InputStreamReader(inputStream));
         this.out = new PrintWriter(outputStream, true);
     }
@@ -22,6 +22,12 @@ public class StreamSocket extends Socket {
     public void printToSocket(String message){
         out.println(message);
         messageSent = !out.checkError();
+    }
+
+    public void closeConnection() throws IOException {
+        this.in.close();
+        this.out.close();
+        this.close();
     }
 
 }
