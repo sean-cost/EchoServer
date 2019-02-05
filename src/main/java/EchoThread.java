@@ -38,11 +38,11 @@ public class EchoThread extends Thread{
         }
     }
 
-    public synchronized void requestStop(){
+    private synchronized void requestStop(){
         isStopRequested = true;
     }
 
-    private synchronized boolean isStopRequested() {
+    public synchronized boolean isStopRequested() {
         return isStopRequested;
     }
 
