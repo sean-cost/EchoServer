@@ -7,7 +7,7 @@ public class Listener {
     private ServerInterface si;
     private ServerSocket ss;
 
-    Listener(ServerInterface si, ServerSocket ss){
+    Listener(ServerInterface si, ServerSocket ss) {
         this.si = si;
         this.ss = ss;
     }
