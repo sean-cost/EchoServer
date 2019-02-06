@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
-public class EchoThreadTest {
+public class EchoRunnableTest {
 
     private ByteArrayOutputStream out;
     private ByteArrayOutputStream stout;
@@ -33,7 +33,7 @@ public class EchoThreadTest {
         ByteArrayInputStream input = new ByteArrayInputStream("Hello\nWorld".getBytes());
 
         sc = new StreamSocket(input, output);
-        new EchoThread(sc, si).run();
+        new EchoRunnable(sc, si).run();
 
         assertThat(out.toString().trim().contains("Hello\nWorld"), is(true));
     }
@@ -43,7 +43,7 @@ public class EchoThreadTest {
         ByteArrayInputStream input = new ByteArrayInputStream("Hello\nWorld".getBytes());
 
         sc = new StreamSocket(input, output);
-        new EchoThread(sc, si).run();
+        new EchoRunnable(sc, si).run();
 
         assertThat(stout.toString().contains("Message sent"), is(true));
     }
@@ -51,9 +51,9 @@ public class EchoThreadTest {
     @Test
     public void sendsInstructionsToClient() {
         sc = new StreamSocket(new ByteArrayInputStream("\n".getBytes()), output);
-        EchoThread echoThread = new EchoThread(sc, si);
+        EchoRunnable echoRunnable = new EchoRunnable(sc, si);
 
-        echoThread.sendInstructions("Hello! Please insert a word");
+        echoRunnable.sendInstructions("Hello! Please insert a word");
         assertThat(out.toString().trim(), is("Hello! Please insert a word"));
     }
 
@@ -63,7 +63,7 @@ public class EchoThreadTest {
         ByteArrayInputStream input = new ByteArrayInputStream(mockInput.getBytes());
 
         sc = new StreamSocket(input, output);
-        new EchoThread(sc, si).run();
+        new EchoRunnable(sc, si).run();
 
         assertThat(sc.isClosed(), is(true));
     }
@@ -74,7 +74,7 @@ public class EchoThreadTest {
         ByteArrayInputStream input = new ByteArrayInputStream(mockInput.getBytes());
 
         sc = new StreamSocket(input, output);
-        EchoThread echo = new EchoThread(sc, si);
+        EchoRunnable echo = new EchoRunnable(sc, si);
         echo.run();
 
         assertThat(echo.isStopRequested(), is(true));

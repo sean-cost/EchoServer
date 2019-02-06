@@ -1,23 +1,27 @@
 import java.io.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class Chatterbox {
 
     private final Listener listener;
     private ServerInterface si;
+    private Executor executor;
 
 
-    public Chatterbox(Listener listener, ServerInterface si){
+    public Chatterbox(Listener listener, ServerInterface si) {
         this.listener = listener;
         this.si = si;
+        this.executor = Executors.newFixedThreadPool(10);
     }
 
     public void start() throws IOException {
         si.inform("Starting the server");
 
-        while(true){
+        while (true) {
             si.inform("Server is awaiting for connections");
             StreamSocket sc = listener.connect();
-            new EchoThread(sc, si).start();
+            executor.execute(new EchoRunnable(sc, si));
         }
     }
 

@@ -1,3 +1,5 @@
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -9,58 +11,49 @@ import java.net.Socket;
 
 
 public class ChatterboxTest {
+    private ServerSocket ss;
+    private ByteArrayOutputStream out;
 
-    @Test
-    public void theServerEchoesAMessage() throws IOException, InterruptedException {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-
-        ServerSocket ss = new ServerSocket(5000);
+    @Before
+    public void setUp() throws Exception {
+        out = new ByteArrayOutputStream();
+        ss = new ServerSocket(5001);
 
         new Thread(() -> {
             try {
                 ServerInterface si = new ServerInterface(new PrintStream(out));
                 Chatterbox server = new Chatterbox(new Listener(si, ss), si);
                 server.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            } catch (IOException  e){}
         }).start();
 
-        Socket socket = new Socket("localhost", 5000);
+    }
+
+    @Test
+    public void theServerEchoesAMessage() throws IOException, InterruptedException {
+        Socket socket = new Socket("localhost", 5001);
         socket.getOutputStream().write("Hello\n".getBytes());
 
         Thread.sleep(50);
 
         assertThat(out.toString().contains("Message sent"), is(true));
-        ss.close();
     }
 
     @Test
     public void theServerAllowsMultipleClients() throws IOException, InterruptedException {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-
-        ServerSocket ss = new ServerSocket(5000);
-
-        new Thread(() -> {
-            try {
-                ServerInterface si = new ServerInterface(new PrintStream(out));
-                Chatterbox server = new Chatterbox(new Listener(si, ss), si);
-                server.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
-
-        Socket oneSocket = new Socket("localhost", 5000);
+        Socket oneSocket = new Socket("localhost", 5001);
         oneSocket.getOutputStream().write("Hello world\n".getBytes());
 
-        Socket twoSocket = new Socket("localhost", 5000);
+        Socket twoSocket = new Socket("localhost", 5001);
         twoSocket.getOutputStream().write("Hello again\n".getBytes());
 
         Thread.sleep(50);
 
         assertThat(out.toString().contains("Message sent\nMessage sent"), is(true));
-        ss.close();
     }
 
+    @After
+    public void tearDown() throws Exception {
+        ss.close();
+    }
 }
