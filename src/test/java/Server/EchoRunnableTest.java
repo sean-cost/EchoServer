@@ -1,3 +1,6 @@
+package Server;
+
+import StreamSocket.StreamSocket;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +17,7 @@ public class EchoRunnableTest {
     private ByteArrayOutputStream stout;
     private StreamSocket sc;
     private PrintStream output;
-    private ServerInterface si;
+    private ServerIO si;
 
     @Before
     public void setUp() {
@@ -24,7 +27,7 @@ public class EchoRunnableTest {
 
         //server console
         stout = new ByteArrayOutputStream();
-        si = new ServerInterface(new PrintStream(stout));
+        si = new ServerIO(new PrintStream(stout));
 
     }
 

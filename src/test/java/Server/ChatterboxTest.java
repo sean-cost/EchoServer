@@ -1,3 +1,5 @@
+package Server;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +23,7 @@ public class ChatterboxTest {
 
         new Thread(() -> {
             try {
-                ServerInterface si = new ServerInterface(new PrintStream(out));
+                ServerIO si = new ServerIO(new PrintStream(out));
                 Chatterbox server = new Chatterbox(new Listener(si, ss), si);
                 server.start();
             } catch (IOException  e){}

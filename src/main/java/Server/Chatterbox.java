@@ -1,3 +1,7 @@
+package Server;
+
+import StreamSocket.StreamSocket;
+
 import java.io.*;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -5,11 +9,11 @@ import java.util.concurrent.Executors;
 public class Chatterbox {
 
     private final Listener listener;
-    private ServerInterface si;
+    private ServerIO si;
     private Executor executor;
 
 
-    public Chatterbox(Listener listener, ServerInterface si) {
+    public Chatterbox(Listener listener, ServerIO si) {
         this.listener = listener;
         this.si = si;
         this.executor = Executors.newFixedThreadPool(10);

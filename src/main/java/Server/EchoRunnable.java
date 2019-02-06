@@ -1,12 +1,16 @@
+package Server;
+
+import StreamSocket.StreamSocket;
+
 import java.io.IOException;
 
 public class EchoRunnable implements Runnable {
 
     private StreamSocket sc;
-    private ServerInterface si;
+    private ServerIO si;
     private boolean isStopRequested;
 
-    EchoRunnable(StreamSocket sc, ServerInterface si) {
+    public EchoRunnable(StreamSocket sc, ServerIO si) {
         this.sc = sc;
         this.si = si;
     }

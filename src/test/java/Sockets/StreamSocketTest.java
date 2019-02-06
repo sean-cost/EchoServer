@@ -1,3 +1,6 @@
+package Sockets;
+
+import StreamSocket.StreamSocket;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,13 +1,17 @@
+package Server;
+
+import StreamSocket.StreamSocket;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Listener {
 
-    private ServerInterface si;
+    private ServerIO si;
     private ServerSocket ss;
 
-    Listener(ServerInterface si, ServerSocket ss) {
+    public Listener(ServerIO si, ServerSocket ss) {
         this.si = si;
         this.ss = ss;
     }

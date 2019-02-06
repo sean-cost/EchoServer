@@ -1,9 +1,11 @@
+package Server;
+
 import java.io.PrintStream;
 
-public class ServerInterface {
+public class ServerIO {
     private PrintStream output;
 
-    public ServerInterface(PrintStream output){
+    public ServerIO(PrintStream output){
         this.output = output;
     }
 

@@ -1,3 +1,5 @@
+package Server;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,16 +10,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 
-public class ServerInterfaceTest {
+public class ServerIOTest {
     private ByteArrayOutputStream out;
     private PrintStream output;
-    ServerInterface si;
+    ServerIO si;
 
     @Before
     public void setUp() {
         out = new ByteArrayOutputStream();
         output = new PrintStream(out);
-        si = new ServerInterface(output);
+        si = new ServerIO(output);
     }
 
     @Test

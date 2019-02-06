@@ -1,5 +1,8 @@
+package Server;
+
 import java.io.IOException;
 import java.net.ServerSocket;
+
 
 public class EchoServer {
 
@@ -7,7 +10,7 @@ public class EchoServer {
         int portNumber = Integer.parseInt(args[0]);
 
         ServerSocket ss = new ServerSocket(portNumber);
-        ServerInterface si = new ServerInterface(System.out);
+        ServerIO si = new ServerIO(System.out);
 
         Listener listener = new Listener(si, ss);
         Chatterbox server = new Chatterbox(listener, si);
