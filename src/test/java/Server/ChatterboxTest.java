@@ -28,7 +28,6 @@ public class ChatterboxTest {
                 server.start();
             } catch (IOException  e){}
         }).start();
-
     }
 
     @Test
@@ -50,6 +49,7 @@ public class ChatterboxTest {
         twoSocket.getOutputStream().write("Hello again\n".getBytes());
 
         Thread.sleep(50);
+        System.out.println(out.toString());
 
         assertThat(out.toString().contains("Message sent\nMessage sent"), is(true));
     }

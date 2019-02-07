@@ -20,7 +20,7 @@ public class StreamSocketTest {
     private ByteArrayOutputStream out;
 
     @Before
-    public void setUp() throws IOException {
+    public void setUp() {
 
         out = new ByteArrayOutputStream();
         output = new PrintStream(out);

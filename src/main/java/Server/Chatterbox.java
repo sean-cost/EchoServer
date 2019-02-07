@@ -23,7 +23,6 @@ public class Chatterbox {
         si.inform("Starting the server");
 
         while (true) {
-            si.inform("Server is awaiting for connections");
             StreamSocket sc = listener.connect();
             executor.execute(new EchoRunnable(sc, si));
         }
