@@ -1,3 +1,6 @@
+package Server;
+
+import StreamSocket.StreamSocket;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +17,7 @@ public class EchoRunnableTest {
     private ByteArrayOutputStream stout;
     private StreamSocket sc;
     private PrintStream output;
-    private ServerInterface si;
+    private ServerIO si;
 
     @Before
     public void setUp() {
@@ -24,18 +27,18 @@ public class EchoRunnableTest {
 
         //server console
         stout = new ByteArrayOutputStream();
-        si = new ServerInterface(new PrintStream(stout));
+        si = new ServerIO(new PrintStream(stout));
 
     }
 
     @Test
     public void sendsMultipleMessagesBack() {
-        ByteArrayInputStream input = new ByteArrayInputStream("Hello\nWorld".getBytes());
+        ByteArrayInputStream input = new ByteArrayInputStream("Merce\nHello\nWorld".getBytes());
 
         sc = new StreamSocket(input, output);
         new EchoRunnable(sc, si).run();
 
-        assertThat(out.toString().trim().contains("Hello\nWorld"), is(true));
+        assertThat(out.toString().contains("Hello\nWorld"), is(true));
     }
 
     @Test
@@ -46,15 +49,6 @@ public class EchoRunnableTest {
         new EchoRunnable(sc, si).run();
 
         assertThat(stout.toString().contains("Message sent"), is(true));
-    }
-
-    @Test
-    public void sendsInstructionsToClient() {
-        sc = new StreamSocket(new ByteArrayInputStream("\n".getBytes()), output);
-        EchoRunnable echoRunnable = new EchoRunnable(sc, si);
-
-        echoRunnable.sendInstructions("Hello! Please insert a word");
-        assertThat(out.toString().trim(), is("Hello! Please insert a word"));
     }
 
     @Test

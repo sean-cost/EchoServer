@@ -1,3 +1,7 @@
+package Server;
+
+import StreamSocket.StreamSocket;
+
 import java.io.*;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -5,11 +9,11 @@ import java.util.concurrent.Executors;
 public class Chatterbox {
 
     private final Listener listener;
-    private ServerInterface si;
+    private ServerIO si;
     private Executor executor;
 
 
-    public Chatterbox(Listener listener, ServerInterface si) {
+    public Chatterbox(Listener listener, ServerIO si) {
         this.listener = listener;
         this.si = si;
         this.executor = Executors.newFixedThreadPool(10);
@@ -19,10 +23,15 @@ public class Chatterbox {
         si.inform("Starting the server");
 
         while (true) {
-            si.inform("Server is awaiting for connections");
             StreamSocket sc = listener.connect();
+            welcomeClient(sc);
             executor.execute(new EchoRunnable(sc, si));
         }
+    }
+
+    private void welcomeClient(StreamSocket sc) throws IOException {
+        String clientName = sc.readFromSocket();
+        sc.printToSocket("Welcome " + clientName + "! Please insert a word");
     }
 
 }

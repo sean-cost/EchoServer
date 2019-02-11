@@ -1,22 +1,21 @@
+package Server;
+
+import StreamSocket.StreamSocket;
+
 import java.io.IOException;
 
 public class EchoRunnable implements Runnable {
 
     private StreamSocket sc;
-    private ServerInterface si;
+    private ServerIO si;
     private boolean isStopRequested;
 
-    EchoRunnable(StreamSocket sc, ServerInterface si) {
+    public EchoRunnable(StreamSocket sc, ServerIO si) {
         this.sc = sc;
         this.si = si;
     }
 
-    public void sendInstructions(String message) {
-        sc.printToSocket(message);
-    }
-
     public void run() {
-        sendInstructions("Hello! Please insert a word");
         String message;
 
         while (!isStopRequested()) {

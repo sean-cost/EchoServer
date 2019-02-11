@@ -1,3 +1,9 @@
+package Server;
+
+import Sockets.ServerSocketStub;
+import Sockets.SocketStub;
+import StreamSocket.StreamSocket;
+import org.hamcrest.MatcherAssert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,7 +27,7 @@ public class ListenerTest {
         String mockInput = "Hello";
         ByteArrayInputStream input = new ByteArrayInputStream(mockInput.getBytes());
 
-        ServerInterface si = new ServerInterface(new PrintStream(new ByteArrayOutputStream()));
+        ServerIO si = new ServerIO(new PrintStream(new ByteArrayOutputStream()));
 
         Socket socketStub = new SocketStub(input,  new PrintStream(new ByteArrayOutputStream()));
         sstub = new ServerSocketStub(socketStub);
@@ -38,7 +44,7 @@ public class ListenerTest {
     @Test
     public void acceptHasBeenCalled() throws IOException {
         listener.connect();
-        assertThat(sstub.hasAcceptBeenCalled(), is(true));
+        MatcherAssert.assertThat(sstub.hasAcceptBeenCalled(), is(true));
     }
 
 }

@@ -19,6 +19,8 @@ jar {
     baseName = "Echo-server"
     version = "0.1.0"
     manifest {
-        attributes 'Main-Class': 'EchoServer'
+        attributes 'Main-Class': 'Server/EchoServer'
     }
 }
+
+

@@ -7,9 +7,14 @@ First, build the project
 `./gradlew clean build`
 
 
-And then start the server in port 9090 
+And then start the server in port 5000 
 
-`java -jar build/libs/Echo-server-0.1.0.jar 9090`
+`java -cp build/libs/Echo-server-0.1.0.jar Server/EchoServer 5000`
+
+
+To start the client, run:
+
+`java -cp build/libs/Echo-server-0.1.0.jar Client/EchoClient 5000`
 
 
 ## To run Netcat
