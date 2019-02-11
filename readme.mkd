@@ -12,7 +12,7 @@ And then start the server in port 5000
 `java -cp build/libs/Echo-server-0.1.0.jar Server/EchoServer 5000`
 
 
-## To start the client, run:
+## To start the (built-in) Echo client, run:
 
 `java -cp build/libs/Echo-server-0.1.0.jar Client/EchoClient 5000`
 
@@ -21,4 +21,8 @@ And then start the server in port 5000
 
 Start netcat and connect to localhost on port 9090
 
-`netcat localhost 9090`
+`netcat localhost 5000`
+
+Right after, type your the name of the client or your name
+
+`netcat`
