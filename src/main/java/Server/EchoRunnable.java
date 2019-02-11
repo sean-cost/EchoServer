@@ -15,12 +15,7 @@ public class EchoRunnable implements Runnable {
         this.si = si;
     }
 
-    public void sendInstructions(String message) {
-        sc.printToSocket(message);
-    }
-
     public void run() {
-        sendInstructions("Hello! Please insert a word");
         String message;
 
         while (!isStopRequested()) {

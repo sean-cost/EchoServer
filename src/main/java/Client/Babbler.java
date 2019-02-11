@@ -13,13 +13,20 @@ public class Babbler implements Runnable {
         this.ci = ci;
     }
 
+    public void introduceYourself() throws IOException {
+        ci.inform("Introduce the name of your server:");
+        ss.printToSocket(ci.getInput());
+        receive(); //receive welcome message
+        this.run();
+    }
+
     public void run() {
         while (true) {
             try {
-                receive();
                 String message = ci.getInput();
                 if (!wantsToStop(message)) {
                     send(message);
+                    receive();
                 } else {
                     ss.closeConnection();
                     return;

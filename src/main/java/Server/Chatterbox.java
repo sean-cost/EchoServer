@@ -24,8 +24,14 @@ public class Chatterbox {
 
         while (true) {
             StreamSocket sc = listener.connect();
+            welcomeClient(sc);
             executor.execute(new EchoRunnable(sc, si));
         }
+    }
+
+    private void welcomeClient(StreamSocket sc) throws IOException {
+        String clientName = sc.readFromSocket();
+        sc.printToSocket("Welcome " + clientName + "! Please insert a word");
     }
 
 }

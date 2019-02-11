@@ -34,14 +34,14 @@ public class BabblerTest {
 
     @Test
     public void sendsAMessageToServerSocket() {
-        SocketStub socket = new SocketStub(new ByteArrayInputStream("".getBytes()), new ByteArrayOutputStream());
-
-        ss = new StreamSocket(socket.getInputStream(), socket.getOutputStream());
+        InputStream input = new ByteArrayInputStream("".getBytes());
+        OutputStream output = new ByteArrayOutputStream();
+        ss = new StreamSocket(input, output);
         babbler = new Babbler(ss, mockClientIO(""));
 
         babbler.send("This is my message");
 
-        assertThat(socket.getOutputStream().toString().trim(), is("This is my message"));
+        assertThat(output.toString().trim(), is("This is my message"));
     }
 
     @Test
@@ -60,7 +60,7 @@ public class BabblerTest {
 
     @Test
     public void stopsAThread() throws IOException {
-        serverSocket = new ServerSocket(5001);
+        serverSocket = new ServerSocket(5002);
         new Thread(() -> {
             try {
                 ServerIO si = new ServerIO(new PrintStream(new ByteArrayOutputStream()));
@@ -69,12 +69,12 @@ public class BabblerTest {
             } catch (IOException  e){}
         }).start();
 
-        ClientIO ci = mockClientIO("quit");
-        Socket socket = new Socket("localhost", 5001);
+        ClientIO ci = mockClientIO("Merce\nquit");
+        Socket socket = new Socket("localhost", 5002);
         ss = new StreamSocket(socket.getInputStream(), socket.getOutputStream());
         babbler = new Babbler(ss, ci);
 
-        babbler.run();
+        babbler.introduceYourself();
 
         assertThat(ss.isClosed(), is(true));
 
@@ -83,7 +83,7 @@ public class BabblerTest {
 
     @Test
     public void canSendAndReceiveMultipleMessages() throws IOException {
-        serverSocket = new ServerSocket(5001);
+        serverSocket = new ServerSocket(5002);
         new Thread(() -> {
             try {
                 ServerIO si = new ServerIO(new PrintStream(new ByteArrayOutputStream()));
@@ -92,14 +92,14 @@ public class BabblerTest {
             } catch (IOException  e){}
         }).start();
 
-        ClientIO ci = mockClientIO("This is my message\nAnd this one too\nquit");
-        Socket socket = new Socket("localhost", 5001);
+        ClientIO ci = mockClientIO("Merce\nThis is my message\nAnd this one too\nquit");
+        Socket socket = new Socket("localhost", 5002);
         ss = new StreamSocket(socket.getInputStream(), socket.getOutputStream());
         babbler = new Babbler(ss, ci);
 
-        babbler.run();
+        babbler.introduceYourself();
 
-        assertThat(stdOut.toString().trim(), is("Hello! Please insert a word\nThis is my message\nAnd this one too"));
+        assertThat(stdOut.toString().contains("This is my message\nAnd this one too"), is(true));
 
         serverSocket.close();
     }
