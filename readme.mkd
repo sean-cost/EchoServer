@@ -7,8 +7,6 @@ First, build the project
 `./gradlew clean build`
 
 
-
-
 And then start the server in port 5000
 
 `java -cp build/libs/Echo-server-0.1.0.jar Server/EchoServer 5000`
